@@ -1,0 +1,40 @@
+<input placeholder="search" [(ngModel)]="containsStr" (ngModelChange)="filterCountires()">
+
+<section *ngIf="countries">
+    <div class="tbl-header">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Native Name</th>
+            <th>Capitel</th>
+            <th>Population</th>
+            <th>Flag</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+    <div class="tbl-content">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tbody>
+          <tr *ngFor="let c of showCountris">
+            <td>{{c.name}}</td>
+            <td>{{c.nativeName}} </td>
+            <td>{{c.capital}}</td>
+            <td>{{c.population}}</td>
+            <td>
+                <img src="{{c.flag}}" width="80" height="50">
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section *ngIf="!countries">
+          <div class="loader"></div>
+  </section>
+  
+  
+  
